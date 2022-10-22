@@ -9,75 +9,135 @@
     <meta property="og:locale" content="zh-Hant-TW" />
     <meta property="og:title" content="今天見的到哈雷彗星嗎" />
     <meta property="og:description" content="一個讓你知道哈雷彗星還有多久才經過地球的神奇網站。" />
-    <title>哈雷彗星今天路過了嗎</title>
+    <title>哈哈哈雷彗星</title>
     <style>
+        h1,h2,h3,h4,h5,h6,p {margin: 0px;}
+
+        body, html {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #666666;
+
+    height: 100%;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+        *, *:before, *:after {
+        margin: 0px; 
+        padding: 0px; 
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+        .overlay {
+         position: relative;
+        z-index: 1;
+        }
+        .overlay::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: lightblue;
+        background: -webkit-linear-gradient(bottom, #b2e6fc, #3881b9);
+        background: -o-linear-gradient(bottom, #b2e6fc, #3881b9);
+        background: -moz-linear-gradient(bottom, #b2e6fc, #3881b9);
+        background: linear-gradient(bottom, #b2e6fc, #3881b9);
+        
+        }
+
+        .overlay::after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        }
+        .lan-er-bow {
+        
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 55px;
+        padding-bottom: 55px;
+        padding-left: 15px;
+        padding-right: 15px;}
+        
         p.double {
+            text-align:center;
+            font-size: 300%;
             border: 10px double white;
+            color: white;
         }
-
-        p.abc {
-            text-align: center;
-            font-size: 150%;
+        p.abc{
+            text-align:center;
+            font-size:150%;
         }
-
         h3 {
             text-align: center;
             font-size: 300%;
         }
-
-        body {
-            margin: 80px;
-            padding: 100px;
-            background: #fff url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Lspn_comet_halley.jpg/1475px-Lspn_comet_halley.jpg') center center fixed no-repeat;
-            background-size: cover;
-        }
+        
+       
     </style>
     <link rel="stylesheet" type="text/css" href="src/main.css">
     <link rel="stylesheet" type="text/css" href="src/font-awesome/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="src/logo/apple-touch-icon-next.png">
     <link rel="icon" type="image/png" sizes="180x180" href="src/logo/favicon-32x32-next.png">
-
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J7YPKGXYF3');
+    </script>
 </head>
-
 <body>
-    <div class="bg-img1 overlay1 size1 flex-w flex-c-m p-t-55 p-b-55 p-l-15 p-r-15"
-        style="background-image: url('src/bg01.jpg');"></div>
-
+    <div class="overlay lan-er-bow" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Lspn_comet_halley.jpg/1475px-Lspn_comet_halley.jpg');"></div>
+    ::before
+    <div>
     <h3 class=" " style="color:white;">哈雷彗星今天路過了嗎</h3>
-    <p class="abc" style="color:white" ;><span id=" ">離下次看見美麗的哈雷彗星，還要:</span></p>
+    <p class="abc" style="color:white";><span id=" ">離下次看見美麗的哈雷彗星，還要:</span></p>
     <p class="double">
-        gkggk<br><br><br>
+        time:<span id="d"></span><br>
     </p>
     <p id="demo"></p>
     <span id="showtime"></span>
     </div>
+    ::after
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/dayjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>var systemTime = parseInt('<%=ViewData["a"] %>');
-
-        $(function () { showTime(); });
-
-        function runTime() {
-            systemTime += 1000;
-            showTime(systemTime);
+    <script type="text/javascript"> 
+        var nowTime ;
+        function play(){
+        var time = new Date();
+        nowTime = time.getFullYear()+"年"+time.getMonth()+"月"+time.getDate()+"日"+time.getHours()+"時"+time.getMinutes()+"分"+time.getSeconds()+"秒";
+        document.getElementById("d").innerHTML = nowTime;
         }
-
-        function showTime() {
-            var t = new Date(systemTime);
-            h = "0" + t.getHours();
-            m = "0" + t.getMinutes();
-            s = "0" + t.getSeconds();
-            h = h.substring(h.length - 2, h.length + 1);
-            m = m.substring(m.length - 2, m.length + 1);
-            s = s.substring(s.length - 2, s.length + 1);
-            t = "目前伺服器時間【" + h + "點" + m + "分" + s + "秒】";
-            window.status = t;
-            setTimeout("runTime()", 1000);
-            document.getElementById("demo").innerHTML = window.status;
-        }
-
-    </script>
-
+        setInterval(play,1000);
+    </script> 
+    <span id="d"></span>
 
 </body>
 
