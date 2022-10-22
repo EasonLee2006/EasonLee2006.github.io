@@ -7,137 +7,387 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="一個讓你知道哈雷彗星還有多久才經過地球的神奇網站。" />
     <meta property="og:locale" content="zh-Hant-TW" />
+    <meta content="webkit" name="renderer">
+    <meta content="webkit" name="force-rendering">
     <meta property="og:title" content="今天見的到哈雷彗星嗎" />
     <meta property="og:description" content="一個讓你知道哈雷彗星還有多久才經過地球的神奇網站。" />
     <title>哈哈哈雷彗星</title>
     <style>
-        h1,h2,h3,h4,h5,h6,p {margin: 0px;}
-
-        body, html {
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    color: #666666;
-
-    height: 100%;
-    background-color: #fff;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-        *, *:before, *:after {
-        margin: 0px; 
-        padding: 0px; 
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0px;
         }
+        
+        body,
+        html {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: #666666;
+            height: 100%;
+            background-color: #fff;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        input,
+        textarea,
+        label {
+            display: block;
+            outline: none;
+            border: none;
+        }
+        
+        *,
+        *:before,
+        *:after {
+            margin: 0px;
+            padding: 0px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        .link {
+            margin: 15px;
+            text-align: center;
+            font-size: x-large;
+            /* background-color: rgb(80, 46, 148); */
+            margin-right: 15px;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        
         .overlay {
-         position: relative;
-        z-index: 1;
+            position: relative;
+            z-index: 1;
         }
+        
         .overlay::before {
-        content: "";
-        display: block;
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: lightblue;
-        background: -webkit-linear-gradient(bottom, #b2e6fc, #3881b9);
-        background: -o-linear-gradient(bottom, #b2e6fc, #3881b9);
-        background: -moz-linear-gradient(bottom, #b2e6fc, #3881b9);
-        background: linear-gradient(bottom, #b2e6fc, #3881b9);
-        
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgb(223, 247, 8);
+            background: -webkit-linear-gradient(bottom, #73109a, #e3e320);
+            background: -o-linear-gradient(bottom, #73109a, #e3e320);
+            background: -moz-linear-gradient(bottom, #73109a, #e3e320);
+            background: linear-gradient(bottom, #73109a, #e3e320);
+            opacity: 0.58;
         }
-
+        
         .overlay::after {
-        content: "";
-        display: block;
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(0,0,0,0.2);
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.2);
         }
+        
         .lan-er-bow {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            -o-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            -ms-align-items: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            padding-top: 55px;
+            padding-bottom: 55px;
+            padding-left: 15px;
+            padding-right: 15px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
         
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        -webkit-flex-wrap: wrap;
-        -moz-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        -o-flex-wrap: wrap;
-        flex-wrap: wrap;
-        justify-content: center;
-        -ms-align-items: center;
-        align-items: center;
-        width: 100%;
-        min-height: 100vh;
-        padding-top: 55px;
-        padding-bottom: 55px;
-        padding-left: 15px;
-        padding-right: 15px;}
-        
-        p.double {
-            text-align:center;
+        .double {
+            text-align: center;
             font-size: 300%;
             border: 10px double white;
+            margin-right: 300px;
+            margin-left: 300px;
             color: white;
         }
-        p.abc{
-            text-align:center;
-            font-size:150%;
+        
+        .timeblock {
+            padding-left: 15px;
+            padding-right: 15px;
+            max-width: 340px;
+            margin: 0 auto;
+            justify-content: space-around;
+            -ms-align-items: center;
+            align-items: center;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            -o-flex-wrap: wrap;
+            flex-wrap: wrap;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding-right: 50px;
+            padding-left: 50px;
+            padding-bottom: 22px;
+            padding-top: 42px;
         }
+        
+        .maohao1 {
+            font-family: Poppins-Light;
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 22px;
+        }
+        
+        .maohao2 {
+            font-family: Poppins-Light;
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 22px;
+        }
+        
+        .day1 {
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 4px;
+        }
+        
+        .day2 {
+            font-size: 18px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .dayall {
+            width: 100px;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            -ms-align-items: center;
+            align-items: center;
+            justify-content: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .hour1 {
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .hour2 {
+            font-size: 18px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .hourall {
+            width: 100px;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            -ms-align-items: center;
+            align-items: center;
+            justify-content: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .minute1 {
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 4px;
+        }
+        
+        .minute2 {
+            font-size: 18px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .minuteall {
+            display: none;
+            font-family: Poppins-Light;
+            font-size: 70px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 22px;
+            width: 100px;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            -ms-align-items: center;
+            align-items: center;
+            justify-content: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-bottom: -5px;
+        }
+        
+        .second1 {
+            font-size: 40px;
+            color: #fff;
+            line-height: 1;
+            padding-bottom: 4px;
+        }
+        
+        .second2 {
+            font-size: 18px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .secondall {
+            width: 100px;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            -ms-align-items: center;
+            align-items: center;
+            justify-content: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        p.abc {
+            text-align: center;
+            font-size: 150%;
+        }
+        
         h3 {
             text-align: center;
             font-size: 300%;
         }
-        
-       
     </style>
     <link rel="stylesheet" type="text/css" href="src/main.css">
     <link rel="stylesheet" type="text/css" href="src/font-awesome/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="src/logo/apple-touch-icon-next.png">
     <link rel="icon" type="image/png" sizes="180x180" href="src/logo/favicon-32x32-next.png">
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J7YPKGXYF3');
-    </script>
+
 </head>
 <body>
-    <div class="overlay lan-er-bow" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Lspn_comet_halley.jpg/1475px-Lspn_comet_halley.jpg');"></div>
-    ::before
-    <div>
-    <h3 class=" " style="color:white;">哈雷彗星今天路過了嗎</h3>
-    <p class="abc" style="color:white";><span id=" ">離下次看見美麗的哈雷彗星，還要:</span></p>
-    <p class="double">
-        time:<span id="d"></span><br>
-    </p>
-    <p id="demo"></p>
-    <span id="showtime"></span>
-    </div>
-    ::after
+    <div class="overlay lan-er-bow" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Lspn_comet_halley.jpg/1475px-Lspn_comet_halley.jpg');">
+        
+        <div>
+            <h3 class="" style="color:white" ;>哈雷彗星今天路過了嗎</h3>
+            <p class="abc" style="color:white" ;><span id=" ">離下次看見美麗的哈雷彗星，還要:</span></p>
+            <div class="timeblock double">
+                <div class="dayall">
+                    <span id="days" class="day1"></span>
+                    <span class="day2">天</span>
+                </div>
+                <span class="maohao1">:</span>
+                <div class="hourall">
+                    <span id="hours" class="hour1"></span>
+                    <span class="hour2">時</span>
+                </div>
+                <div class="minuteall">
+                    <span id="mins" class="minute1"></span>
+                    <span class="minute2">分</span>
+                </div>
+                <span class="maohao2">:</span>
+                <div class="secondall">
+                    <span id="secs" class="second1"></span>
+                    <span class="second2">秒</span>
+                </div>
+                <span id="end"></span><br>
+            </div>
+            <p class="link"><a style="color:yellow" href="https://zh.m.wikipedia.org/zh-tw/%E5%93%88%E9%9B%B7%E5%BD%97%E6%98%9F">點擊前往哈雷彗星介紹!</a></p>
+            <p id="demo"></p>
+            <span id="showtime"></span>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/dayjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript"> 
-        var nowTime ;
-        function play(){
-        var time = new Date();
-        nowTime = time.getFullYear()+"年"+time.getMonth()+"月"+time.getDate()+"日"+time.getHours()+"時"+time.getMinutes()+"分"+time.getSeconds()+"秒";
-        document.getElementById("d").innerHTML = nowTime;
-        }
-        setInterval(play,1000);
-    </script> 
-    <span id="d"></span>
+    <script type="application/javascript">
+        var countDownDate = new Date("Jan 20, 2061 24:00:00").getTime(); //Jan 20, 2061 24:00:00
+        var myfunc = setInterval(function() {
+            var now = new Date().getTime();
+            var timeleft = countDownDate - now;
+            // Calculating the days, hours, minutes and seconds left
+            var years = Math.floor(timeleft / (1000 * 60 * 60 * 24 * 30 * 12));
+            var months = Math.floor((timeleft % (1000 * 60 * 60 * 24 * 30 * 12)) / (1000 * 60 * 60 * 24 * 30));
+            var days = Math.floor((timeleft % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+            // Result is output to the specific element
+            //document.getElementById("years").innerHTML = years + "年 "
+            //document.getElementById("months").innerHTML = months + "月 "
+            document.getElementById("days").innerHTML = ((years * 365) + (months * 30) + days)
+            document.getElementById("hours").innerHTML = hours
+            document.getElementById("mins").innerHTML = minutes
+            document.getElementById("secs").innerHTML = seconds
+
+            // Display the message when countdown is over
+            if (timeleft < 0 && timeleft > -86400) {
+                clearInterval(myfunc);
+                document.getElementById("years").innerHTML = ""
+                document.getElementById("months").innerHTML = ""
+                document.getElementById("days").innerHTML = ""
+                document.getElementById("hours").innerHTML = ""
+                document.getElementById("mins").innerHTML = ""
+                document.getElementById("secs").innerHTML = ""
+                document.getElementById("end").innerHTML = "哈雷彗星來辣!!";
+            }
+            if (timeleft < -30) {
+                document.getElementById("end").innerHTML = "哈雷彗星早就走辣!!";
+            }
+        }, 1000);
+    </script>
+    </script>
 
 </body>
 
