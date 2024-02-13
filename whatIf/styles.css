@@ -1,0 +1,29 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: powderblue;
+}
+
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 25px;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    color: yellow;
+    font-style:italic;
+    background-color: red;
+}
+
+.gridContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

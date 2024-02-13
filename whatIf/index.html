@@ -4,30 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: powderblue;
-        }
-
-        p {
-            font-family: verdana;
-        }
-
-        a:link, a:visited {
-            background-color: #f44336;
-            color: white;
-            padding: 5px 25px;
-            border: 2px solid white;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        a:hover, a:active {
-            background-color: red;
-        }
-    </style>
+    <title>what if...</title>
+    <link rel="icon" href="pics/fluidicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1 style = "
@@ -45,35 +25,43 @@
     -->
     <a class="btn btn-success" href="https://www.youtube.com" target="_blank">Youtube</a>
     <br>
-    <img src = "pics/thankYou.gif" alt = "thank you" style = "width:128px; height:128px;">
-    <p>test paragraph</p>
-    <hr>
-    <p>what if...</p>
-    <p>break<br>the<br>line<br></p>
-    <pre style = "
-        font-size: 20px;
-        color: slateblue;">
-    just
-    like     this 
-
-
-
-        <abbr title = "yup, just yeet">yeet</abbr>
-    </pre>
-
-    <p style = "text-align: center;">
-        i'm at the center yee
-    </p>
-
-    <p>My favorite color is <del>blue</del> <ins>red</ins>.</p>
-    <p>This is <sub>subscripted</sub> text.</p>
-    <p>This is <sup>superscripted</sup> text.</p>
     
-    <bdo dir="rtl">This line will be written from right to left</bdo>
+    <div style = "width: 128px; margin:auto;">
+        <img src = "pics/thankYou.gif" alt = "thank you" style = "width:128px; height:128px;">
+    </div>
+
+    <div class= "gridContainer">
+        <div style = "background-color: limegreen;">
+            <h1>testing1</h1>
+        </div>
+        <div style = "background-color: crimson;">
+            <h1>test2</h1>
+        </div>
+    </div>
+    <div>
+        <p id="sentence">I like apples.</p>
+        <button id="changeButton">Change Sentence</button>
+    </div>
 
 </body>
 </html>
 <!--
     comments here~~
 
+    <pre style = "
+        font-size: 20px;
+        font-family: verdana;
+        color: slateblue;">
+    just
+    like     this 
+
+        <abbr title = "yup, just yeet">yeet</abbr>
+    </pre>
+
+    <p>test paragraph</p>
+    <hr>
+    
+    <p style = "text-align: center;">
+        i'm at the center yee
+    </p>
 -->
