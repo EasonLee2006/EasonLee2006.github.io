@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: powderblue;
+    background-color: rgb(169, 163, 255);
 }
 
 a:link, a:visited {
@@ -26,4 +26,27 @@ a:hover, a:active {
 .gridContainer{
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+#container{
+    display: flex;
+    position:relative;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 150px;
+}
+
+button{
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid white;
+}
+
+button:hover, button:active{
+    border: 3px solid black;
+}
+
+button:active{
+    border: 2px solid yellow;
 }
