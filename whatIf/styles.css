@@ -1,26 +1,11 @@
 *{
+    color: rgb(32, 32, 32);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
 
 body {
     background-color: rgb(169, 163, 255);
-}
-
-a:link, a:visited {
-    background-color: #f44336;
-    color: white;
-    padding: 5px 25px;
-    border: 2px solid white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-a:hover, a:active {
-    color: yellow;
-    font-style:italic;
-    background-color: red;
 }
 
 .gridContainer{
@@ -41,6 +26,7 @@ button{
     padding: 10px;
     border-radius: 7px;
     border: 2px solid white;
+    font-size: 16px;
 }
 
 button:hover, button:active{
