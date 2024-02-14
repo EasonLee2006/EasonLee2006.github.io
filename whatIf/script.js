@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const defaultFontSize = 16;
     const defaultPaddingSize = 10;
+    let gifUrls = [];
+    for(let i=0 ; i<=9 ; i++){
+        gifUrls[i] = 'pics/' + i + '.gif'
+    }
 
     // Array of sentences
     const sentences = [
@@ -23,6 +27,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let SentenceIndex = 0;
     let phase = 0;
     
+    function preloadGifs(urls) {
+        urls.forEach(function(url) {
+            const img = new Image();
+            img.src = url;
+            console.log( url + " loaded");
+        });
+    }
+    preloadGifs(gifUrls);
+
     function the_result(){
         let b1FontSize, b1Padding, b1TextContent, b2FontSize, b2Padding, b2TextContent;
         
@@ -151,5 +164,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         the_result();
     });
-  });
+});
   
