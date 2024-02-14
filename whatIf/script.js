@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(phase <=7){
             phase+=1;
         }else if(phase == 9){
-            phase = 7;
+            phase = 1;
         }else if (phase == 10){
             window.open('https://github.com/EasonLee2006/EasonLee2006.github.io/tree/main/whatIf', '_blank');
         }else{
