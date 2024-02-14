@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Ok, but before goodbye, here\'s something',//7
         'Get rickrolled lol',//8
         'Thank you. I love you',//9
-        'Here\'s the sorce code, thanks for your participating. Refresh page to play again' //10
+        'Here\'s the source code, thanks for your participating. Refresh page to play again' //10
     ];
 
     let phase = 0;
