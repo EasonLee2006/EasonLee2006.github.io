@@ -8,6 +8,10 @@ body {
     background-color: rgb(169, 163, 255);
 }
 
+h1{
+    font-family: "Marker Felt", fantasy;
+}
+
 .gridContainer{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -18,7 +22,7 @@ body {
     position:relative;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 150px;
 }
 
