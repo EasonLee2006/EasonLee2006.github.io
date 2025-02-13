@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     envelopeWrapper.addEventListener("click", function (event) {
         // Prevent any click event on parent elements from interfering.
         event.stopPropagation();
-        opened = opened ? false : true;
+        opened = true;
 
         flapUpTimeout = setTimeout(() => {
             envelopeWrapper.classList.add("flap-lower");

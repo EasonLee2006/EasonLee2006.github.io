@@ -6,7 +6,7 @@
   --envelope-cover: #f3dcb7;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --txt-color: #444;
-  --txt-size: 19px;
+  --txt-size: 5.5px;
   --particle-color: rgb(100, 150, 250);
   --final-scale: 3; /* Default final scale on desktop */
 }
@@ -14,7 +14,7 @@
 @media (max-width: 600px) {
   :root {
     --final-scale: 2; /* A smaller scale value on mobile */
-    --txt-size: 24px;
+    --txt-size: 6px;
   }
 }
 
@@ -70,6 +70,11 @@
     opacity: 0;
     transform: translate(var(--tx), var(--ty)) scale(0.5);
   }
+}
+
+* {
+  color: rgb(32, 32, 32);
+  font-family: "DejaVu Sans Mono", monospace;
 }
 
 body {
@@ -186,7 +191,7 @@ body {
 .envelope > .letter > .text {
   color: var(--txt-color);
   text-align: left;
-  font-size: 6px;
+  font-size: var(--txt-size);
 }
 
 /* ---------- INTERACTIONS ---------- */
