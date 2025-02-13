@@ -29,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopPropagation();
         opened = opened ? false : true;
 
+        flapUpTimeout = setTimeout(() => {
+            envelopeWrapper.classList.add("flap-lower");
+        }, 500);
+
         // Get the current computed transform of the letter.
         const computedStyle = window.getComputedStyle(letter);
         const transformMatrix = computedStyle.transform; // e.g., "matrix(1, 0, 0, 1, 0, -30)"
