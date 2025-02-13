@@ -6,7 +6,16 @@
   --envelope-cover: #f3dcb7;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --txt-color: #444;
+  --txt-size: 19px;
   --particle-color: rgb(100, 150, 250);
+  --final-scale: 3; /* Default final scale on desktop */
+}
+
+@media (max-width: 600px) {
+  :root {
+    --final-scale: 2; /* A smaller scale value on mobile */
+    --txt-size: 24px;
+  }
 }
 
 /* Keyframes for the letter animation */
@@ -21,7 +30,7 @@
     transform: translateY(-200px) scale(1);
   }
   100% {
-    transform: translateY(-24px) scale(2.5);
+    transform: translateY(-24px) scale(var(--final-scale));
     z-index: 4;
   }
 }
@@ -112,7 +121,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   color: rgb(230, 230, 230);
-  font-size: 19px;
+  font-size: var(--txt-size);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
