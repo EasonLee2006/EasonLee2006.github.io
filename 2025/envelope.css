@@ -14,7 +14,7 @@
 @media (max-width: 600px) {
   :root {
     --final-scale: 2; /* A smaller scale value on mobile */
-    --txt-size: 6px;
+    --txt-size: 5px;
   }
 }
 
@@ -88,6 +88,14 @@ body {
   font-family: sans-serif;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .container {
   height: 100vh;
   display: grid;
@@ -126,7 +134,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   color: rgb(230, 230, 230);
-  font-size: var(--txt-size);
+  font-size: 19px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
